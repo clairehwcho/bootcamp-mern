@@ -1,0 +1,58 @@
+/* Remove browser defaults */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style App.js wrapper */
+.App {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tab Container */
+.tabs {
+    min-height: 400px;
+}
+
+/* Tab Navigation */
+.nav {
+    width: 60%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav li {
+    width: 30%;
+    padding: 1rem;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.nav li:hover {
+    background: black;
+    color: white;
+}
+
+.nav li.active {
+    background: black;
+    color: white;
+}
+
+/* Tab Outlet */
+.outlet {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto 2rem;
+    padding: 15px;
+    min-height: 100px;
+    border: 1px solid black;
+}
