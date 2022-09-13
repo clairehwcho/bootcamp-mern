@@ -40,7 +40,7 @@ const handleGetJokeById = async (req, res) => {
 const handleGetRandomJoke = async (req, res) => {
     try {
         const joke = await getRandomJoke();
-        return res.json(joke);
+        return res.json(joke[0]);
     } catch (error) {
         return res.status(400).json(error);
     }

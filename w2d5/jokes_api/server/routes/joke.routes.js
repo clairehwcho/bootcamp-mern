@@ -15,10 +15,10 @@ const router = express.Router();
 data at the :id spot in url is accessed with req.params.id
 route params can be named anything and the name will be added to req.params
 */
-router.post('/new', handleCreateJoke);
 router.get('/', handleGetAllJokes);
-router.get('/:id', handleGetJokeById);
+router.post('/new', handleCreateJoke);
 router.get('/random', handleGetRandomJoke);
+router.get('/:id', handleGetJokeById);
 router.put('/update/:id', handleUpdateJokeById);
 router.delete('/delete/:id', handleDeleteJokeById);
 
