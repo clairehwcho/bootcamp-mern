@@ -10,10 +10,10 @@ const {
 
 const router = express.Router();
 
-router.post('/new', handleCreateProduct);
+router.post('/', handleCreateProduct);
 router.get('/', handleGetAllProducts);
 router.get('/:id', handleGetProductById);
-router.put('/update/:id', handleUpdateProductById);
-router.delete('/delete/:id', handleDeleteProductById);
+router.put('/:id/edit', handleUpdateProductById);
+router.delete('/:id/delete', handleDeleteProductById);
 
 module.exports = { productRouter: router };

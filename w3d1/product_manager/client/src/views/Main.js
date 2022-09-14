@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import ProductForm from '../components/productForm/ProductForm';
+import React from 'react';
+import NewProduct from './NewProduct';
+import AllProducts from './AllProducts';
+
 
 export default () => {
-    useEffect(() => {
-        document.title = 'Product Manager';
-    });
     return (
-        <div className="container">
-            <ProductForm />
+        <div>
+            <NewProduct />
+            <hr></hr>
+            <AllProducts />
         </div>
     )
 }

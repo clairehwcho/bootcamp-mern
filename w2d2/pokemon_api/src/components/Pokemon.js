@@ -1,3 +1,4 @@
+// USING FETCH
 // import React, { useState } from 'react';
 
 // const Pokemon = (props) => {

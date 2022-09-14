@@ -54,6 +54,7 @@ const handleDeleteProductById = async (req, res) => {
     }
 };
 
+    // Export an object of our controller methods so they can be addd to routes
 module.exports = {
     handleCreateProduct,
     handleGetAllProducts,
