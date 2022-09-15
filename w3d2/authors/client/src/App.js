@@ -12,10 +12,10 @@ return (
     <div className="container">
     <Routes>
         <Route path="/new" element={<NewAuthor />} />
-        <Route path="/edit/*" element={<NotFound />} />
         <Route path="/edit/:id" element={<EditAuthor />} />
         <Route path="/:id" element={<OneAuthor />} />
         <Route path="/" element={<Main />} />
+        <Route path="*" element={<NotFound />} />
     </Routes>
     </div>
 );
