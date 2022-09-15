@@ -15,7 +15,6 @@ return (
         <Route path="/edit/:id" element={<EditAuthor />} />
         <Route path="/:id" element={<OneAuthor />} />
         <Route path="/" element={<Main />} />
-        <Route path="*" element={<NotFound />} />
     </Routes>
     </div>
 );

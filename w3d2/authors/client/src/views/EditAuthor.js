@@ -5,12 +5,14 @@ import {
     updateAuthorById,
     deleteAuthorById,
 } from '../services/internalApiService';
+import NotFound from './NotFound';
 
 export const EditAuthor = (props) => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     const [name, setName] = useState('');
+    const [authorAvailable, setAuthorAvailable] = useState(false);
 
     const [errors, setErrors] = useState(null);
 
@@ -19,9 +21,11 @@ export const EditAuthor = (props) => {
             .then((data) => {
                 const { name } = data;
                 setName(name);
+                setAuthorAvailable(true);
             })
             .catch((error) => {
                 console.log(error);
+                setAuthorAvailable(false);
             });
     }, [id]);
 
@@ -56,36 +60,41 @@ export const EditAuthor = (props) => {
 
     return (
         <div>
-            <h1>Favorite Authors</h1>
-            <Link to="/">Home</Link>
-            <form className="authorForm" onSubmit={handleEditAuthorSubmit}>
-                <div className="form-group mb-3 row">
-                    <label className="col-sm-2 col-form-label">Name:</label>
-                    <input className="form-control" type="text" value={name} onChange={handleNameChange} />
-                    {
-                        errors?.name && <span style={{ color: 'red' }}>{errors?.name?.message}</span>
-                    }
-                </div>
+            {authorAvailable ?
+                <div>
+                    <h1>Favorite Authors</h1>
+                    <Link to="/">Home</Link>
+                    <form className="authorForm" onSubmit={handleEditAuthorSubmit}>
+                        <div className="form-group mb-3 row">
+                            <label className="col-sm-2 col-form-label">Name:</label>
+                            <input className="form-control" type="text" value={name} onChange={handleNameChange} />
+                            {
+                                errors?.name && <span style={{ color: 'red' }}>{errors?.name?.message}</span>
+                            }
+                        </div>
 
-                <div className="form-group row">
-                    <button className="btn btn-primary mb-3">
-                        Edit
-                    </button>
-                </div>
-            </form>
-            <div className="form-group row">
-                <button onClick={(e) => {
-                    handleDeleteClick();
-                }} className="btn btn btn-danger mb-3">
-                    Delete
-                </button>
-                <button onClick={(e) => {
-                    navigate(`/`);
-                }} className="btn btn-secondary mb-3">
-                    Cancel
-                </button>
-            </div>
-        </div>
+                        <div className="form-group row">
+                            <button className="btn btn-primary mb-3">
+                                Edit
+                            </button>
+                        </div>
+                    </form>
+                    <div className="form-group row">
+                        <button onClick={(e) => {
+                            handleDeleteClick();
+                        }} className="btn btn btn-danger mb-3">
+                            Delete
+                        </button>
+                        <button onClick={(e) => {
+                            navigate(`/`);
+                        }} className="btn btn-secondary mb-3">
+                            Cancel
+                        </button>
+                    </div>
+                </div> :
+                <NotFound />
+            }
+        </div >
     )
 };
 
