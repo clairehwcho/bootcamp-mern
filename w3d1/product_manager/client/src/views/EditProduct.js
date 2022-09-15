@@ -7,7 +7,6 @@ import {
 } from '../services/internalApiService';
 
 export const EditProduct = (props) => {
-    // url route param matching ':id'
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -63,10 +62,6 @@ export const EditProduct = (props) => {
             })
             .catch((error) => {
                 console.log(error);
-                /*
-                `?.' allows you to safely access keys that may not exist,
-                instaed of crashing the app if a key doesn't exist, it will return undefined.
-                */
                 setErrors(error?.response?.data?.errors);
             });
     };

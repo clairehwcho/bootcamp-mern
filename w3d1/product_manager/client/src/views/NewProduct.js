@@ -26,19 +26,12 @@ export const NewProduct = (props) => {
         e.preventDefault();
         const newProduct = { title, price, description };
         createProduct(newProduct).then((data) => {
-            /*
-            Our service returns only the data. If using axios directly, you get 'res' and need to do 'res.data'.
-            */
+
             console.log('new product data:', data);
             navigate('/');
         })
-            // Catch is triggered by res.status(400) in server's controller file
             .catch((error) => {
                 console.log(error);
-                /*
-                `?.' allows you to safely access keys that may not exist,
-                instaed of crashing the app if a key doesn't exist, it will return undefined.
-                */
                 setErrors(error?.response?.data?.errors);
             });
     };

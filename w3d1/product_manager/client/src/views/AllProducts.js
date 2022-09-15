@@ -2,14 +2,9 @@ import { useState, useEffect } from "react";
 import { deleteProductById, getAllProducts } from "../services/internalApiService";
 import { Link } from "react-router-dom";
 
-// Named export: import {AllProducts, Name2 } from './components/AllProducts';
 export const AllProducts = (props) => {
     const [products, setProducts] = useState([]);
 
-    /*
-    Empty array as second arguments means it will only run on mount,
-    not on other state changes so we don't keep re-freshing data.
-    */
     useEffect(() => {
         getAllProducts()
             .then((data) => {

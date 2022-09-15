@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#allAuthorsTable {
+  width: 500px;
+  text-align: center;
+}
+
+#newAuthorBtns {
+  display: flex;
+  justify-content: space-around;
+}

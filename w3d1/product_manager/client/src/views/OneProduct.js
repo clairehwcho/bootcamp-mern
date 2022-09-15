@@ -6,7 +6,6 @@ import { getProductById } from '../services/internalApiService';
 
 export const OneProduct = (props) => {
     const [product, setProduct] = useState(null);
-    // Get the ':id" url parameter data.
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -22,14 +21,9 @@ export const OneProduct = (props) => {
     }, [id]);
 
     if (product === null) {
-        // display nothing until we have data.
         return null;
     }
 
-    /*
-    We can only safely use the data to render and destructure now
-    since we chcekd it's not null
-    */
     const { title, price, description } = product;
 
     const handleDeleteClick = () => {
